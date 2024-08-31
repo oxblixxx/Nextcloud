@@ -22,7 +22,7 @@
 - Adminstrator can submit the form after completing the form.
 - To review the submitted responses, go to the Responses tab, where you'll see a list of users who have answered the form.
 
-[forms](https://github.com/oxblixxx/Nextcloud/blob/main/images/forms.jpg)
+![forms](Nextcloud/blob/main/images/forms.jpg)
 
 # MANAGING USERS AND GROUPS IN NEXTCLOUD
 ## Accessing User Management:
