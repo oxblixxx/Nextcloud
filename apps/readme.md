@@ -21,14 +21,5 @@
 ## Submitting and Viewing Responses:
 - Adminstrator can submit the form after completing the form.
 - To review the submitted responses, go to the Responses tab, where you'll see a list of users who have answered the form.
-
-![forms](../images/forms.jpg)
-
-## Account Settings:
-- The Account Settings section allows you to modify user preferences, set defaults, and sort users as needed.
-- Note that users cannot change their password upon [first login](https://help.nextcloud.com/t/force-password-change-at-user-logon/1664/14). Therefore, it's advisable to create a strong password for each user and enforce a 2FA.
-
-## Managing Users:
-- By clicking on the three dots next to a user, administrators can access additional options such as deleting or disabling the user account.
   
 # TRANSFER APP
