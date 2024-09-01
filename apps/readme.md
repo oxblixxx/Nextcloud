@@ -125,4 +125,6 @@ While the deck app integrates with the task app, they both have different use ca
 ## Managing Tasks:
 - On an individual task, click on the three dots to access additional options, such as adding a sub-task or deleting the task.
 - To change the completion progress color, click on the three dots on the task, use the color picker, press Enter, and then click on the left icon to confirm.
- 
+
+# MAIL APP
+The mail app, integrates the emails to the nextcloud. Click on the mail icon, click on mail settings, click on add email. If you decide to add your personal email, you are to use the auto section, then mail address should be your email address, password should be `app password`. For gmail, to get the app password, here is a [video](https://www.youtube.com/watch?v=74QQfPrk4vE). After generating the app password, return to the Nextcloud console, paste the app password, click on connect. To add the company email, use the manual section, for the `mail address` put in your email address. The mail address will be the same with `SMPT USER` and `IMAP USER`. While the `IMAP HOST` and `SMPT HOST` will be the info sent to you. The IMAP Security and SMTP Security should SSL/TLS. While the IMAP password and SMTP password will be the password assigned to your email. Click on connect to add the email. After it succesfully adds the email. Refresh the console, click on the 3 dots, located to the email address that is just added, click on account settings, scroll down to find signature, paste in the templates that you have, and add the image.
