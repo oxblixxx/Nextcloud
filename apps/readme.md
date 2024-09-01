@@ -23,3 +23,51 @@
 - To review the submitted responses, go to the Responses tab, where you'll see a list of users who have answered the form.
   
 # TRANSFER APP
+The Transfer app in Nextcloud allows users to download files directly from the internet using a URL.
+
+## Enable the Transfer App:
+- From the Nextcloud console, click on your avatar icon in the top right corner, then select Apps.
+- Navigate to the Files section and locate the Transfer app.
+- Click on Enable to activate the app.
+
+## Download Files via URL:
+- Once the Transfer app is enabled, go to the Files section by clicking on the Files icon in the installed apps area.
+- If needed, select the folder where you want to save the downloaded file.
+- Click on the New (+) icon and choose Transfer from URL.
+- Paste the file's URL, then set the desired file name and extension.
+- The download will begin immediately.
+NB: The file isn't functioning correctly, while it's an untested app. It will be looked into.
+
+# TALK APP
+
+Using the Talk App in Nextcloud
+The Talk app in Nextcloud facilitates communication through text, voice, and video calls.
+
+## Installing the Talk App:
+
+- From the Nextcloud console, click on your avatar icon in the top right corner and select Apps.
+- Navigate to the Files section, locate the Talk app, and click on Enable to activate it.
+
+## Accessing and Using the Talk App:
+- Once enabled, the Talk icon will appear in the installed apps area.
+- To initiate a conversation, click on the message icon integrated with a plus symbol.
+- You can start a text chat or initiate voice and video calls with other users.
+
+## Administrator Settings and Limitations:
+- Administrators can impose restrictions on the Talk app's usage.
+- To configure these settings, click on your avatar icon, then select Administrator Settings.
+- Scroll down to locate the Talk section.
+- Here, you can set limitations on who can use the Talk app, initiate calls, or create public and group conversations.
+
+## Setting Up a [TURN Server](https://nextcloud-talk.readthedocs.io/en/latest/TURN/): 
+In the current setup, the coturn server is being used to facilitate voice and video calls in Nextcloud Talk. However, it only functions currently when calls are placed through a VPN. This limitation arises because the server is located behind a NAT, and the TURN server is hosted on the same server, which isn't publicly accessible. As a result, calls cannot function without a VPN connection. While the Turn server docs was helpful, here are helpful blogs that provided clarity for setup and debugging which is from Nextcloud Community.
+- [blog-1](https://help.nextcloud.com/t/talk-calls-not-working-mostly/129031/10)
+- [blog-2](https://help.nextcloud.com/t/nextcloud-box-use-of-static-ip-address/10235/13)
+- [blog-3](https://help.nextcloud.com/t/talk-calls-only-work-when-connected-to-local-network-coturn-turn-server-not-working/153872)
+- [blog-4](https://forum.cloudron.io/topic/6285/nextcloud-talk-not-connecting-calls/5)
+- [blog-5](https://www.netways.de/blog/2017/08/16/setting-up-a-turn-server-for-nextcloud-video-calls/)
+  
+While a [blog post](https://help.nextcloud.com/t/howto-setup-nextcloud-talk-with-turn-server/30794) advised to setup the coturn server to be publicly accessible. To address this issue, the plan is to set up a TURN server on Azure. The Azure-based TURN server will be publicly accessible, allowing for the testing and verification of call functionality without the need for a VPN. Additionally, considerations for a high-backend server will also be explored to improve performance and reliability.
+
+
+To enhance the Talk app's functionality, you can set up a TURN server for improved performance in voice and video calls. 
