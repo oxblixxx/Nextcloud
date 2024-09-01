@@ -109,4 +109,20 @@ The Deck app in Nextcloud is a personal planning and project management tool tha
 - Once a task is completed, click on Completed to mark the project as finished.
 
 # TASKS
-while the deck app integrates with the task app, they both have different use cases and how it's been detailed. 
+While the deck app integrates with the task app, they both have different use cases and how it's been detailed
+
+## Creating a Task in the Deck App:
+- Click on Add List to create a task list, then press Enter.
+- After creating a task, note the share icon next to it. Click on this icon to add users or groups to the task. Then decide if the user should edit.
+
+## Adding and Modifying Tasks:
+- To add a task within a list, click on Add a Task and press Enter.
+- Click on the task you just added to modify its details.
+- You can set a start date, due date, priority, and other relevant details.
+- Explore the Details section to adjust these settings.
+- Use the Note section to add a description to the task.
+
+## Managing Tasks:
+- On an individual task, click on the three dots to access additional options, such as adding a sub-task or deleting the task.
+- To change the completion progress color, click on the three dots on the task, use the color picker, press Enter, and then click on the left icon to confirm.
+ 
