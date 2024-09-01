@@ -69,5 +69,41 @@ In the current setup, the coturn server is being used to facilitate voice and vi
   
 While a [blog post](https://help.nextcloud.com/t/howto-setup-nextcloud-talk-with-turn-server/30794) advised to setup the coturn server to be publicly accessible. To address this issue, the plan is to set up a TURN server on Azure. The Azure-based TURN server will be publicly accessible, allowing for the testing and verification of call functionality without the need for a VPN. Additionally, considerations for a high-backend server will also be explored to improve performance and reliability.
 
-
 To enhance the Talk app's functionality, you can set up a TURN server for improved performance in voice and video calls. 
+
+# DECK APP
+The Deck app in Nextcloud is a personal planning and project management tool that allows you to organize tasks and collaborate with others.
+
+## Installing the Deck App:
+
+- From the Nextcloud console, click on your avatar icon and navigate to Apps.
+- Go to the Organization section, locate the Deck app, and click on Enable to install it.
+
+## Setting Up a Board:
+- After installation, you can find the Deck app icon in the installed apps area.
+- Click on Deck Settings and enable Deck ID.
+- To create a new board, click on Add Board, provide a name for the board, and press Enter.
+
+## Creating Lists and Cards:
+- Provide a name for a List on the board and press Enter.
+- To add more lists, click on the + icon next to the search bar; this will create new lists horizontally.
+- On the created lists, click on the + icon to add cards.
+- Repeat the process to add additional cards as needed.
+
+## Inviting Users to the Board:
+- To invite users, locate the hamburger icon integrated with an avatar near the search icon.
+- The board can be shared with teams or individual users by searching for them in this section.
+- You can grant specific permissions to users by clicking on the three dots next to their name for more options.
+
+## Managing Tags:
+- While in the board view, click on Tags to create new tags.
+- Tags can be applied to cards for better organization.
+
+## Managing Cards:
+- Double-click on a card to open it.
+- Click on the three dots to change the viewing type.
+- Within the card, you can assign tags and delegate the card to a user.
+- To add a due date, click on the + icon next to the calendar icon.
+- Select Choose Date to set a future date in the MM/DD/YYYY format.
+- The due date can be modified by clicking on the date or deleted by selecting the three dots option.
+- Once a task is completed, click on Completed to mark the project as finished.
