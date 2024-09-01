@@ -127,4 +127,28 @@ While the deck app integrates with the task app, they both have different use ca
 - To change the completion progress color, click on the three dots on the task, use the color picker, press Enter, and then click on the left icon to confirm.
 
 # MAIL APP
-The mail app, integrates the emails to the nextcloud. Click on the mail icon, click on mail settings, click on add email. If you decide to add your personal email, you are to use the auto section, then mail address should be your email address, password should be `app password`. For gmail, to get the app password, here is a [video](https://www.youtube.com/watch?v=74QQfPrk4vE). After generating the app password, return to the Nextcloud console, paste the app password, click on connect. To add the company email, use the manual section, for the `mail address` put in your email address. The mail address will be the same with `SMPT USER` and `IMAP USER`. While the `IMAP HOST` and `SMPT HOST` will be the info sent to you. The IMAP Security and SMTP Security should SSL/TLS. While the IMAP password and SMTP password will be the password assigned to your email. Click on connect to add the email. After it succesfully adds the email. Refresh the console, click on the 3 dots, located to the email address that is just added, click on account settings, scroll down to find signature, paste in the templates that you have, and add the image.
+The Mail app in Nextcloud allows you to integrate your email accounts directly into the Nextcloud environment.
+
+## Accessing the Mail App:
+- Click on the Mail icon in the Nextcloud console.
+- Navigate to Mail Settings and select Add Email.
+
+## Adding a Personal Email Account:
+- For personal email accounts, use the Auto setup section.
+- Enter your email address in the Mail Address field and use an app-specific password as the Password, not the regular password used.
+- For Gmail users, you will need to generate an app password. Here is a [video tutorial](https://www.youtube.com/watch?v=74QQfPrk4vE) to guide you through the process.
+- Once you have the app password, return to the Nextcloud console, paste the app password, and click Connect.
+
+## Adding a Company Email Account:
+- For company email account, use the Manual setup section.
+- Enter your email address in the Mail Address field.
+- The Mail Address, SMTP User, and IMAP User will all be the same.
+- The IMAP Host and SMTP Host details will be provided by your company.
+- Set both the IMAP Security and SMTP Security to SSL/TLS.
+- Use the password assigned to your email for both the IMAP Password and SMTP Password fields.
+- Click Connect to add the email account.
+
+## Finalizing Email Setup:
+- After successfully adding the email account, refresh the console.
+- Click on the three dots next to the newly added email address and select Account Settings.
+- Scroll down to find the Signature section, where you can paste your signature template and add an image if needed.
