@@ -87,7 +87,7 @@ The Deck app in Nextcloud is a personal planning and project management tool tha
 ## Creating Lists and Cards:
 - Provide a name for a List on the board and press Enter.
 - To add more lists, click on the + icon next to the search bar; this will create new lists horizontally.
-- On the created lists, click on the + icon to add cards.
+- On the created lists, click on the + icon to add cards, this creates the cards vetically.
 - Repeat the process to add additional cards as needed.
 
 ## Inviting Users to the Board:
