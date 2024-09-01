@@ -107,3 +107,6 @@ The Deck app in Nextcloud is a personal planning and project management tool tha
 - Select Choose Date to set a future date in the MM/DD/YYYY format.
 - The due date can be modified by clicking on the date or deleted by selecting the three dots option.
 - Once a task is completed, click on Completed to mark the project as finished.
+
+# TASKS
+while the deck app integrates with the task app, they both have different use cases and how it's been detailed. 
