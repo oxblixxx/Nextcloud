@@ -1,12 +1,12 @@
 ---
 - name: Include prerequisites tasks
   include_tasks:
-   file: .yaml
+   file: variables.yaml
 
 
 - name: Include prerequisites tasks
   include_tasks:
-   file: prerequisites.yaml
+   file: configure.yaml
 
 - name: Include prerequisites tasks
   include_tasks:
