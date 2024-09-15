@@ -9,6 +9,7 @@
     update_cache: yes
   changed_when: False
   when: not mysql_installed.stat.exists
+  become: true
 
 - name: Ensure MySQL Python libraries are installed.
   ansible.builtin.apt:

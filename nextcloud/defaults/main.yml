@@ -1,6 +1,5 @@
 ---
 # defaults file for nextcloud
----
 # Set this to the user ansible is logging in as - should have root
 # or sudo access
 mysql_user_home: /admin
