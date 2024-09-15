@@ -1,31 +1,54 @@
 ---
-- hosts: all
-  tasks:
-    # Variable configuration
-    - name: Include variable configuration
-      ansible.builtin.include_tasks: variables.yaml
+- name: Include prerequisites tasks
+  include_tasks:
+   file: .yaml
 
-    # Setup/install tasks for Debian
-    - name: Include setup tasks for Debian
-      ansible.builtin.include_tasks: setupmysql.yaml
-#      when: ansible_os_family == 'Debian'
 
-    # Check if MySQL packages were installed
-    - name: Check if MySQL packages were installed
-      ansible.builtin.set_fact:
-        mysql_install_packages: "{{ (rh_mysql_install_packages is defined and rh_mysql_install_packages.changed)
-          or (deb_mysql_install_packages is defined and deb_mysql_install_packages.changed)
-          or (arch_mysql_install_packages is defined and arch_mysql_install_packages.changed) }}"
+- name: Include prerequisites tasks
+  include_tasks:
+   file: prerequisites.yaml
 
-    # Configure MySQL
-    - name: Configure MySQL
-      ansible.builtin.include_tasks: configure.yaml
+- name: Include prerequisites tasks
+  include_tasks:
+   file: prerequisites.yaml
 
-    - name: Secure MySQL installation
-      ansible.builtin.include_tasks: secure-installation.yaml
 
-    - name: Configure databases
-      ansible.builtin.include_tasks: db.yaml
+- name: Include prerequisites tasks
+  include_tasks:
+   file: prerequisites.yaml
 
-    - name: Configure users
-      ansible.builtin.include_tasks: users.yaml
+
+- name: Include prerequisites tasks
+  include_tasks:
+   file: prerequisites.yaml
+
+# - hosts: all
+#   tasks:
+#     # Variable configuration
+#     - name: Include variable configuration
+#       ansible.builtin.include_tasks: variables.yaml
+
+#     # Setup/install tasks for Debian
+#     - name: Include setup tasks for Debian
+#       ansible.builtin.include_tasks: setupmysql.yaml
+# #      when: ansible_os_family == 'Debian'
+
+#     # Check if MySQL packages were installed
+#     - name: Check if MySQL packages were installed
+#       ansible.builtin.set_fact:
+#         mysql_install_packages: "{{ (rh_mysql_install_packages is defined and rh_mysql_install_packages.changed)
+#           or (deb_mysql_install_packages is defined and deb_mysql_install_packages.changed)
+#           or (arch_mysql_install_packages is defined and arch_mysql_install_packages.changed) }}"
+
+#     # Configure MySQL
+#     - name: Configure MySQL
+#       ansible.builtin.include_tasks: configure.yaml
+
+#     - name: Secure MySQL installation
+#       ansible.builtin.include_tasks: secure-installation.yaml
+
+#     - name: Configure databases
+#       ansible.builtin.include_tasks: db.yaml
+
+#     - name: Configure users
+#       ansible.builtin.include_tasks: users.yaml
