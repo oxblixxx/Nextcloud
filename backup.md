@@ -13,7 +13,7 @@ exit
 su -
 
 mkdir /var/backups/nextcloud_$(date +"%Y-%m-%d\_%H-%M-%S")  
-mysqldump --databases nextcloud > /var/backups/nextcloud_backup\_$(date +"%Y-%m-%d\_%H-%M-%S").sql
+mysqldump --databases nextcloud > /var/backups/nextcloud_path_created_above/nextcloud_backup_$(date +"%Y-%m-%d\_%H-%M-%S").sql
 
 #---- BACKUP THE ENTIRE NEXTCLOUD FOLDER   
 cd /var/www   
