@@ -28,7 +28,7 @@ jobs:
       #   if: always()
       #   run: |
       #     echo "## Gitleaks Results" >> $GITHUB_STEP_SUMMARY
-      #     echo "| File | Line | Rule |" >> $GITHUB_STEP_SUMMARY
+      #     echo "| File | Line | Rule |" >> $GITHUB_STEP_SUMMARYHGHGH
       #     echo "|------|------|------|" >> $GITHUB_STEP_SUMMARY
       #     jq -r '.[] | "| \(.File) | \(.StartLine) | \(.RuleID) |"' report.json >> $GITHUB_STEP_SUMMARY
       - name: Run Gitleaks Scan
