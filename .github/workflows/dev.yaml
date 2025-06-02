@@ -2,13 +2,31 @@ name: pre-commit
 
 on:
   pull_request:
-  push:
     branches: [main]
+ # push:
+ #   branches: [main]
 
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+          fetch-depth: 0
+
     - uses: actions/setup-python@v3
-    - uses: pre-commit/action@v3.0.1
+
+    # Install Gitleaks binary
+    - name: Install Gitleaks
+      run: |
+        curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.27.0/gitleaks_8.27.0_linux_x64.tar.gz -o gitleaks.tar.gz
+        tar -xvf gitleaks.tar.gz
+        sudo mv gitleaks /usr/local/bin/
+        gitleaks version
+
+    # Run pre-commit
+    - name: Install pre-commit
+      run: pip install pre-commit
+
+    - name: Run pre-commit on all files
+      run: pre-commit run --all-files
