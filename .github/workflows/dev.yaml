@@ -34,7 +34,7 @@ jobs:
       - name: Run Gitleaks Scan
         id: gitleaks
         run: |
-          git config --global --add safe.directory /__w/HungerBuddy/HungerBuddy
+          git config --global --add safe.directory /__w/Nextcloud/Nextcloud
           gitleaks detect \
             --source=. \
             --verbose \
