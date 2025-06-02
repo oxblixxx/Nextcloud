@@ -3,6 +3,7 @@ name: pre-commit
 on:
   pull_request:
     branches: [main]  # triggers when a PR is opened to main
+  push:
 
 jobs:
   pre-commit:
