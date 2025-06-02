@@ -10,5 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
     - uses: actions/setup-python@v3
+
+    # Install Gitleaks binary
+    - name: Install Gitleaks
+      run: |
+        wget -O gitleaks.tar.gz https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-linux-amd64.tar.gz
+        tar -xvf gitleaks.tar.gz
+        sudo mv gitleaks /usr/local/bin/
+
+    # Run pre-commit
     - uses: pre-commit/action@v3.0.1
