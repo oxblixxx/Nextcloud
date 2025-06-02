@@ -1,22 +1,15 @@
 repos:
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v2.3.0
-  hooks:
-    - id: check-yaml
-    - id: end-of-file-fixer
-    - id: trailing-whitespace
-
-- repo: https://github.com/psf/black
-  rev: 22.10.0
-  hooks:
-    - id: black
-
-- repo: local
-  hooks:
-    - id: gitleaks
-      name: gitleaks
-      entry: gitleaks detect --no-git --redact --verbose
-      language: system
-      types: [text]
-      pass_filenames: false
-      stages: [pre-commit, pre-merge-commit, pre-push]
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/psf/black
+    rev: 22.10.0
+    hooks:
+    -   id: black
+-   repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.0
+    hooks:
+    -   id: gitleaks
