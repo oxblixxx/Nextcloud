@@ -24,3 +24,9 @@ id = "private-key"
 description = "Identified a Private Key, which may compromise cryptographic security and sensitive data encryption."
 regex = '''(?i)-----BEGIN[ A-Z0-9_-]{0,100}PRIVATE KEY(?: BLOCK)?-----[\s\S-]{64,}?KEY(?: BLOCK)?-----'''
 keywords = ["-----begin"]
+
+[[rules]]
+id = "enhanced-private-key"
+description = "Enhanced Private Key Detection"
+regex = '''-----BEGIN[ A-Z0-9_-]*PRIVATE KEY-----[A-Za-z0-9+/=\s]+-----END[ A-Z0-9_-]*PRIVATE KEY-----'''
+tags = ["key", "private-key", "asymmetric"]
