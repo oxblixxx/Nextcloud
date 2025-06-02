@@ -2,85 +2,26 @@ name: pre-commit
 
 on:
   pull_request:
-    branches: [main]
-  push:
-    branches-ignore: [main]  # Run on all branches except main
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+    branches: [main]  # triggers when a PR is opened to main
 
 jobs:
-  scan:
-    name: gitleaks
+  pre-commit:
     runs-on: ubuntu-latest
-    container:
-      image: zricethezav/gitleaks:latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout PR branch
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-      - name: Setup environment
+          fetch-depth: 0  # important: get full history for pre-commit to work properly
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+
+      - name: Install gitleaks
         run: |
-          #sudo apt-get update
-          apk add jq
-      # - name: Create Summary
-      #   if: always()
-      #   run: |
-      #     echo "## Gitleaks Results" >> $GITHUB_STEP_SUMMARY
-      #     echo "| File | Line | Rule |" >> $GITHUB_STEP_SUMMARYHGHGH
-      #     echo "|------|------|------|" >> $GITHUB_STEP_SUMMARY
-      #     jq -r '.[] | "| \(.File) | \(.StartLine) | \(.RuleID) |"' report.json >> $GITHUB_STEP_SUMMARY
-      - name: Run Gitleaks Scan
-        id: gitleaks
-        run: |
-          git config --global --add safe.directory /__w/Nextcloud/Nextcloud
-          gitleaks detect \
-            --source=. \
-            --verbose \
-            --report-format json \
-            --report-path report.json \
-            --exit-code 1
-        continue-on-error: true  # Required to allow next steps to run
-      - name: Create Summary
-        if: always()
-        run: |
-          echo "## 🚨 Gitleaks Scan Results" >> $GITHUB_STEP_SUMMARY
-          echo "| File | Line | Secret Type | Context | Author | Commit | Date |" >> $GITHUB_STEP_SUMMARY
-          echo "|------|------|-------------|---------|--------|--------|------|" >> $GITHUB_STEP_SUMMARY
-          
-          if [ -f report.json ]; then
-            jq -r '
-              .[] |
-              "| `\(.File // "N/A")` | \(.StartLine // "?") | `\(.RuleID // "unknown-rule")` | " +
-              "\(.Finding[0:30]? // .Secret[0:30]? // "no-context" | gsub("\n";" "))... | " +
-              "\(.Author? // "unknown") | " +
-              "\(.Commit[0:7]? // "N/A" | ascii_downcase) | \(.Date[0:10]? // "unknown-date") |"
-            ' report.json >> $GITHUB_STEP_SUMMARY
-            
-            echo "- Empty fields indicate missing metadata" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "✅ No secrets detected" >> $GITHUB_STEP_SUMMARY
-          fi
-      - name: Comment on PR
-        if: github.event_name == 'pull_request' && steps.gitleaks.outcome == 'failure'
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const fs = require('fs');
-            const report = JSON.parse(fs.readFileSync('./report.json', 'utf8'));
-            const message = [
-              "### 🚨 Gitleaks detected secrets",
-              "| File | Line | Secret Type |",
-              "|------|------|-------------|",
-              ...report.map(finding => 
-                `| \`${finding.File}\` | ${finding.StartLine} | ${finding.RuleID} |`
-              )
-            ].join('\n');
-            
-            await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: message
-            });
+          curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.27.0/gitleaks_8.27.0_linux_x64 -o gitleaks
+          chmod +x gitleaks
+          sudo mv gitleaks /usr/local/bin/
+          gitleaks version
+
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.1
