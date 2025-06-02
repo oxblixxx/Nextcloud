@@ -24,9 +24,11 @@ jobs:
         sudo mv gitleaks /usr/local/bin/
         gitleaks version
 
-    # Run pre-commit
+
+# Run pre-commit
     - name: Install pre-commit
       run: pip install pre-commit
 
     - name: Run pre-commit on all files
       run: pre-commit run --all-files
+#    - uses: pre-commit/action@v3.0.1
