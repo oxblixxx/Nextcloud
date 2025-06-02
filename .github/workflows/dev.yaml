@@ -35,12 +35,13 @@ jobs:
         id: gitleaks
         run: |
           git config --global --add safe.directory /__w/Nextcloud/Nextcloud
-          gitleaks detect \
-            --source=. \
-            --verbose \
-            --report-format json \
-            --report-path report.json \
-            --exit-code 1
+          gitleaks dir . -v
+          #gitleaks detect \
+          #  --source=. \
+          #  --verbose \
+          #  --report-format json \
+          #  --report-path report.json \
+          #  --exit-code 1
         continue-on-error: true  # Required to allow next steps to run
       - name: Create Summary
         if: always()
