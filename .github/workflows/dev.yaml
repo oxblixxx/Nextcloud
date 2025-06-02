@@ -2,27 +2,40 @@ name: pre-commit
 
 on:
   pull_request:
-    branches: [main]  # triggers when a PR is opened to main
+    branches: [main]
   push:
+    branches-ignore: [main]  # Run on all branches except main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout PR branch
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # important: get full history for pre-commit to work properly
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'  # Or your preferred version
 
-      - name: Install gitleaks
-        run: |
-          curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.27.0/gitleaks_8.27.0_linux_x64 -o gitleaks
-          chmod +x gitleaks
-          sudo mv gitleaks /usr/local/bin/
-          gitleaks version
+    - uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('.pre-commit-config.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
 
-      - name: Run pre-commit
-        uses: pre-commit/action@v3.0.1
+    - name: Install pre-commit
+      run: pip install pre-commit
+
+    - uses: gitleaks/gitleaks-action@v2
+      with:
+        version: v8.27.0
+
+    - name: Run pre-commit on all files
+      run: pre-commit run --all-files
