@@ -36,6 +36,9 @@ jobs:
     - uses: gitleaks/gitleaks-action@v2
       with:
         version: v8.27.0
+    # Scan entire repo (not just changes)
+        config-path: .gitleaks.toml  # Optional custom config
+        command: detect --source=. --verbose --redact
 
     - name: Run pre-commit on all files
       run: pre-commit run --all-files
