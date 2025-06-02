@@ -67,6 +67,8 @@ keywords = [
     "secret",
     "token",
     "db-password",
+    "DB_PASS",
+    "DB_PASSWORD",
 ]
 
 [[rules]]
