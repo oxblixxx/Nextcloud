@@ -8,3 +8,7 @@ YmVoI9d+pUvLCm1K8Q9lF7UT8I+2FpkvhT8CAwEAAQJAUj+u1Jv5a/JZz0EXJxvP
 -----END RSA PRIVATE KEY-----
 
 
+
+aws_secret_access_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+
+
