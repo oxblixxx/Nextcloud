@@ -13,10 +13,10 @@ repos:
 
 - repo: local
   hooks:
-  stages: [pre-commit, pre-merge-commit, pre-push,
     - id: gitleaks
       name: gitleaks
       entry: gitleaks detect --no-git --redact --verbose
       language: system
       types: [text]
       pass_filenames: false
+      stages: [pre-commit, pre-merge-commit, pre-push]
