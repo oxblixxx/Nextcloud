@@ -1,0 +1,7 @@
+name: main
+
+on:
+  push:
+    branches: [main, test-me-*]
+    tags: '*'
+  pull_request:
