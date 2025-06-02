@@ -50,25 +50,23 @@ stopwords = [
     "014df517-39d1-4453-b7b3-9930c563627c",
 ]
 
-[[rules]]
-id = "1password-secret-key"
-description = "Uncovered a possible 1Password secret key, potentially compromising access to secrets in vaults."
-regex = '''\bA3-[A-Z0-9]{6}-(?:(?:[A-Z0-9]{11})|(?:[A-Z0-9]{6}-[A-Z0-9]{5}))-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}\b'''
-entropy = 3.8
-keywords = ["a3-"]
-
-[[rules]]
-id = "1password-service-account-token"
-description = "Uncovered a possible 1Password service account token, potentially compromising access to secrets in vaults."
-regex = '''ops_eyJ[a-zA-Z0-9+/]{250,}={0,3}'''
-entropy = 4
-keywords = ["ops_"]
-
-[[rules]]
-id = "adafruit-api-key"
-description = "Identified a potential Adafruit API Key, which could lead to unauthorized access to Adafruit services and sensitive data exposure."
-regex = '''(?i)[\w.-]{0,50}?(?:adafruit)(?:[ \t\w.-]{0,20})[\s'"]{0,3}(?:=|>|:{1,3}=|\|\||:|=>|\?=|,)[\x60'"\s=]{0,5}([a-z0-9_-]{32})(?:[\x60'"\s;]|\\[nr]|$)'''
-keywords = ["adafruit"]
+id = "generic-api-key"
+description = "Detected a Generic API Key, potentially exposing access to various services and sensitive operations."
+regex = '''(?i)[\w.-]{0,50}?(?:access|auth|(?-i:[Aa]pi|API)|credential|creds|key|passw(?:or)?d|secret|token)(?:[ \t\w.-]{0,20})[\s'"]{0,3}(?:=|>|:{1,3}=|\|\||:|=>|\?=|,)[\x60'"\s=]{0,5}([\w.=-]{10,150}|[a-z0-9][a-z0-9+/]{11,}={0,3})(?:[\x60'"\s;]|\\[nr]|$)'''
+entropy = 3.5
+keywords = [
+    "access",
+    "api",
+    "auth",
+    "key",
+    "credential",
+    "creds",
+    "passwd",
+    "password",
+    "secret",
+    "token",
+    "db-password",
+]
 
 [[rules]]
 id = "private-key"
