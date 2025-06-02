@@ -84,6 +84,3 @@ jobs:
               repo: context.repo.repo,
               body: message
             });
-
-    - name: Run pre-commit on all files
-      run: pre-commit run --all-files
