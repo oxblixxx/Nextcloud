@@ -40,11 +40,7 @@ jobs:
             --report-format json \
             --report-path report.json \
             --exit-code 1
-
-          #. -v
-          #gitleaks detect \
-          
-        continue-on-error: true  # Required to allow next steps to run
+            
       - name: Create Summary
         if: always()
         run: |
