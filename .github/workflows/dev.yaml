@@ -1,4 +1,4 @@
-name: pre-commit
+name: SURE YOU DIDNT PUSH ANY SECRETS?
 
 on:
   pull_request:
