@@ -35,12 +35,12 @@ jobs:
         id: gitleaks
         run: |
           git config --global --add safe.directory /__w/Nextcloud/Nextcloud
-          gitleaks dir \
-            --source=. \
+          gitleaks dir . \
             --verbose \
             --report-format json \
             --report-path report.json \
             --exit-code 1
+
           #. -v
           #gitleaks detect \
           
