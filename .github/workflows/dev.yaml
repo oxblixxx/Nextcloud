@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches-ignore: [main]  # Run on all branches except main
+    branches-ignore: [main] 
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -24,13 +24,7 @@ jobs:
         run: |
           #sudo apt-get update
           apk add jq
-      # - name: Create Summary
-      #   if: always()
-      #   run: |
-      #     echo "## Gitleaks Results" >> $GITHUB_STEP_SUMMARY
-      #     echo "| File | Line | Rule |" >> $GITHUB_STEP_SUMMARY
-      #     echo "|------|------|------|" >> $GITHUB_STEP_SUMMARY
-      #     jq -r '.[] | "| \(.File) | \(.StartLine) | \(.RuleID) |"' report.json >> $GITHUB_STEP_SUMMARY
+
       - name: Run Gitleaks Scan
         id: gitleaks
         run: |
